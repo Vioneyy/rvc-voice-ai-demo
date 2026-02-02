@@ -17,45 +17,22 @@ Each model includes:
 
 ---
 
+#
 ### 🎤 Model 1
-
-**TTS Input**
-<audio controls>
-  <source src="audio/model1_tts.mp3" type="audio/mpeg">
-</audio>
-
-**RVC Output**
-<audio controls>
-  <source src="audio/model1_rvc.wav" type="audio/wav">
-</audio>
+- 🔊 **TTS Input:** [Play](audio/model1_tts.mp3)
+- 🎧 **RVC Output:** [Play](audio/model1_rvc.wav)
 
 ---
 
 ### 🎤 Model 2
-
-**TTS Input**
-<audio controls>
-  <source src="audio/model2_tts.mp3" type="audio/mpeg">
-</audio>
-
-**RVC Output**
-<audio controls>
-  <source src="audio/model2_rvc.wav" type="audio/wav">
-</audio>
+- 🔊 **TTS Input:** [Play](audio/model2_tts.mp3)
+- 🎧 **RVC Output:** [Play](audio/model2_rvc.wav)
 
 ---
 
 ### 🎤 Model 3
-
-**TTS Input**
-<audio controls>
-  <source src="audio/model3_tts.mp3" type="audio/mpeg">
-</audio>
-
-**RVC Output**
-<audio controls>
-  <source src="audio/model3_rvc.wav" type="audio/wav">
-</audio>
+- 🔊 **TTS Input:** [Play](audio/model3_tts.mp3)
+- 🎧 **RVC Output:** [Play](audio/model3_rvc.wav)
 
 ---
 
