@@ -29,8 +29,8 @@
     .logo{font-size:28px;font-weight:700;display:flex;align-items:center;gap:10px}
     .logo .icon{font-size:30px}
     .title-sub{color:var(--muted);font-size:14px;margin-top:6px}
-    /* language toggle (top-left as requested) */
-    .lang-toggle{position:fixed;left:18px;top:18px;background:var(--glass);border:1px solid rgba(255,255,255,0.04);padding:6px;border-radius:8px;backdrop-filter: blur(6px);}
+    /* language toggle (top-right as requested) */
+    .lang-toggle{position:fixed;right:18px;top:18px;background:var(--glass);border:1px solid rgba(255,255,255,0.04);padding:6px;border-radius:8px;backdrop-filter: blur(6px);z-index:999;}
     .lang-toggle button{background:none;border:0;color:var(--text);padding:6px 8px;border-radius:6px;cursor:pointer}
     .lang-toggle button.active{background:linear-gradient(90deg,rgba(77,163,255,0.12),rgba(77,163,255,0.06));color:var(--accent);box-shadow:0 3px 10px rgba(77,163,255,0.06)}
     main h2{font-size:22px;margin:10px 0 10px 0}
@@ -49,13 +49,13 @@
     footer{margin-top:26px;color:var(--muted);font-size:13px}
     @media (max-width:720px){
       .wrap{margin:20px;padding:20px;}
-      .lang-toggle{left:12px;top:12px}
+      .lang-toggle{right:12px;top:12px}
     }
   </style>
 </head>
 <body>
 
-  <!-- language toggle (top-left) -->
+  <!-- language toggle (top-right) -->
   <div class="lang-toggle" role="toolbar" aria-label="Language switch">
     <button id="btn-en" class="active" onclick="setLang('en')">English</button>
     <button id="btn-th" onclick="setLang('th')">ไทย</button>
