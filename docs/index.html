@@ -6,172 +6,283 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    body {
+    :root {
+      --bg: #0f1115;
+      --card: #161a20;
+      --text: #e6e6e6;
+      --muted: #a0a0a0;
+      --accent: #4da3ff;
+    }
+
+    * {
+      box-sizing: border-box;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: #0f1115;
-      color: #e6e6e6;
-      max-width: 900px;
-      margin: auto;
-      padding: 32px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
-    h1, h2, h3 {
-      color: #ffffff;
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px 80px;
     }
+
+    header {
+      position: relative;
+      margin-bottom: 32px;
+    }
+
     h1 {
-      font-size: 2.2rem;
-      margin-bottom: 8px;
+      font-size: 2rem;
+      margin: 0 0 12px;
     }
+
     h2 {
       margin-top: 48px;
-      border-bottom: 1px solid #2a2d34;
+      border-bottom: 1px solid #2a2f38;
       padding-bottom: 8px;
     }
+
     h3 {
       margin-top: 32px;
     }
+
+    p {
+      color: var(--muted);
+    }
+
     ul {
-      margin-left: 20px;
+      padding-left: 20px;
     }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .lang-toggle {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .lang-toggle button {
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid #2a2f38;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .lang-toggle button:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
     .model {
-      margin-top: 32px;
+      background: var(--card);
       padding: 20px;
-      background: #161922;
       border-radius: 12px;
+      margin-top: 24px;
     }
+
     .audio-block {
       margin-top: 12px;
     }
+
     audio {
       width: 100%;
       margin-top: 6px;
     }
-    .note {
-      margin-top: 32px;
-      padding: 16px;
-      background: #141823;
-      border-left: 4px solid #5c7cfa;
-      border-radius: 8px;
+
+    .section {
+      margin-top: 40px;
     }
-    .contact {
-      margin-top: 32px;
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 60px;
+      color: var(--muted);
+      font-size: 0.9rem;
     }
   </style>
 </head>
 
 <body>
+  <div class="container">
+    <header>
+      <h1>🎧 RVC Voice AI Demo Portfolio</h1>
 
-<h1>🎧 RVC Voice AI Demo Portfolio</h1>
+      <div class="lang-toggle">
+        <button onclick="toggleLang()">TH / EN</button>
+      </div>
 
-<p>
-  This page shows demo outputs of <strong>RVC (Retrieval-based Voice Conversion)</strong>.
-</p>
+      <div id="intro-en">
+        <p>
+          This page shows demo outputs of RVC (Retrieval-based Voice Conversion).
+        </p>
+        <p>
+          Each example includes the original TTS input and the converted RVC output
+          so you can compare quality and style.
+        </p>
 
-<p>
-  Each example includes the original <strong>TTS input</strong> and the converted
-  <strong>RVC output</strong> so you can compare quality and style.
-</p>
+        <ol>
+          <li>
+            <b>AI Voice-over & Content (Podcast, Shorts, Narration)</b><br />
+            Use RVC together with TTS to produce voice-overs in the exact
+            voice/style you need.
+          </li>
+          <li>
+            <b>Voice for AI Systems (Chatbots, Alerts)</b><br />
+            Deploy RVC models as the speaking voice for AI assistants or chatbots.
+          </li>
+          <li>
+            <b>Integration with Voice Tools & Platforms</b><br />
+            Provide RVC models for third-party TTS or live voice conversion tools.
+          </li>
+        </ol>
+      </div>
 
-<h2>Use Cases</h2>
+      <div id="intro-th" style="display:none">
+        <p>
+          หน้านี้เป็นตัวอย่างผลงาน RVC (Retrieval-based Voice Conversion)
+        </p>
+        <p>
+          แต่ละตัวอย่างจะมีเสียงต้นฉบับจาก TTS และเสียงที่ผ่านการแปลงด้วย RVC
+          เพื่อใช้เปรียบเทียบคุณภาพและสไตล์เสียง
+        </p>
 
-<ol>
-  <li>
-    <strong>AI Voice-over & Content</strong> (Podcast, Shorts, Narration)<br>
-    Use RVC together with TTS to produce voice-overs in the exact voice/style you need —
-    ideal for podcasts, short clips, ads, or narration.
-  </li>
-  <li>
-    <strong>Voice for AI Systems</strong> (Chatbots, Alerts)<br>
-    Deploy RVC models as the speaking voice for AI assistants, chatbots, or notification systems
-    (e.g., an AI that reads emails or interacts with users via voice).
-  </li>
-  <li>
-    <strong>Integration with Voice Tools & Platforms</strong><br>
-    Provide RVC models to work with third-party voice tools and apps that accept custom voice models
-    (such as TTS pipelines or live voice conversion tools).
-  </li>
-</ol>
+        <ol>
+          <li>
+            <b>งานพากย์ / คอนเทนต์เสียง</b><br />
+            ใช้ RVC ร่วมกับ TTS เพื่อสร้างเสียงพากย์ตามสไตล์ที่ต้องการ
+          </li>
+          <li>
+            <b>เสียงสำหรับระบบ AI</b><br />
+            ใช้เป็นเสียงพูดของผู้ช่วย AI หรือระบบแจ้งเตือน
+          </li>
+          <li>
+            <b>เชื่อมต่อกับเครื่องมือเสียงอื่นๆ</b><br />
+            รองรับการใช้งานร่วมกับระบบ TTS หรือ live voice tools
+          </li>
+        </ol>
+      </div>
+    </header>
 
-<h2>Demo Models</h2>
-<p>
-  Below are sample pairs (<strong>TTS input → RVC output</strong>).  
-  Click play to compare each model.
-</p>
+    <h2>Demo Models</h2>
+    <p>Below are sample pairs (TTS input → RVC output).</p>
 
-<div class="model">
-  <h3>🎤 Model 1 — Female voice test v1</h3>
-  <ul>
-    <li>Model: RVC (demo, ~20 epochs)</li>
-    <li>Input: Neutral TTS (example sentence)</li>
-    <li>Use case: Podcast narration / Character voice</li>
-  </ul>
+    <!-- Model 1 -->
+    <div class="model">
+      <h3>Model 1 — Female voice test v1</h3>
+      <ul>
+        <li>Model: RVC (demo, ~20 epochs)</li>
+        <li>Input: Neutral TTS</li>
+        <li>Use case: Podcast narration / Character voice</li>
+      </ul>
 
-  <div class="audio-block">
-    <strong>TTS Input</strong>
-    <audio controls src="audio/model1_tts.mp3"></audio>
+      <div class="audio-block">
+        <b>TTS input</b>
+        <audio controls src="audio/model1_tts.mp3"></audio>
+      </div>
+
+      <div class="audio-block">
+        <b>RVC output</b>
+        <audio controls src="audio/model1_rvc.wav"></audio>
+      </div>
+    </div>
+
+    <!-- Model 2 -->
+    <div class="model">
+      <h3>Model 2 — Female voice test v2</h3>
+
+      <div class="audio-block">
+        <b>TTS input</b>
+        <audio controls src="audio/model2_tts.mp3"></audio>
+      </div>
+
+      <div class="audio-block">
+        <b>RVC output</b>
+        <audio controls src="audio/model2_rvc.wav"></audio>
+      </div>
+    </div>
+
+    <!-- Model 3 -->
+    <div class="model">
+      <h3>Model 3 — Female voice test v3</h3>
+
+      <div class="audio-block">
+        <b>TTS input</b>
+        <audio controls src="audio/model3_tts.mp3"></audio>
+      </div>
+
+      <div class="audio-block">
+        <b>RVC output</b>
+        <audio controls src="audio/model3_rvc.wav"></audio>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Notes</h2>
+      <ul>
+        <li>Demo models are for quality reference.</li>
+        <li>
+          Production-ready models (50–100+ epochs) available on request.
+        </li>
+        <li>
+          I only work with voices that clients own or have explicit permission for.
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Contact</h2>
+
+      <p>
+        Email :
+        <a href="mailto:vioneyy.vio6@gmail.com">vioneyy.vio6@gmail.com</a>
+      </p>
+
+      <p>
+        Discord : vioneyy<br />
+        <a href="https://discord.com/users/508192047614918656" target="_blank">
+          https://discord.com/users/508192047614918656
+        </a>
+      </p>
+
+      <p>
+        X : @__Vioneyy<br />
+        <a href="https://x.com/__Vioneyy" target="_blank">
+          https://x.com/__Vioneyy
+        </a>
+      </p>
+    </div>
+
+    <footer>
+      © 2026 Vioneyy — RVC Voice AI Demo
+    </footer>
   </div>
 
-  <div class="audio-block">
-    <strong>RVC Output</strong>
-    <audio controls src="audio/model1_rvc.wav"></audio>
-  </div>
-</div>
-
-<div class="model">
-  <h3>🎤 Model 2 — Female voice test v2</h3>
-  <ul>
-    <li>Model: RVC (demo, ~20 epochs)</li>
-    <li>Input: Neutral TTS (example sentence)</li>
-    <li>Use case: Podcast narration / Character voice</li>
-  </ul>
-
-  <div class="audio-block">
-    <strong>TTS Input</strong>
-    <audio controls src="audio/model2_tts.mp3"></audio>
-  </div>
-
-  <div class="audio-block">
-    <strong>RVC Output</strong>
-    <audio controls src="audio/model2_rvc.wav"></audio>
-  </div>
-</div>
-
-<div class="model">
-  <h3>🎤 Model 3 — Female voice test v3</h3>
-  <ul>
-    <li>Model: RVC (demo, ~20 epochs)</li>
-    <li>Input: Neutral TTS (example sentence)</li>
-    <li>Use case: Podcast narration / Character voice</li>
-  </ul>
-
-  <div class="audio-block">
-    <strong>TTS Input</strong>
-    <audio controls src="audio/model3_tts.mp3"></audio>
-  </div>
-
-  <div class="audio-block">
-    <strong>RVC Output</strong>
-    <audio controls src="audio/model3_rvc.wav"></audio>
-  </div>
-</div>
-
-<div class="note">
-  <strong>Notes</strong>
-  <ul>
-    <li>Demo models are for quality reference only.</li>
-    <li>Production-ready models (50–100+ epochs) are available on request.</li>
-    <li>I only work with voices that clients own or for which they have explicit permission.</li>
-  </ul>
-</div>
-
-<div class="contact">
-  <h2>Contact</h2>
-  <p>
-    <strong>Email:</strong> your-email@example.com<br>
-    <strong>Discord:</strong> yourdiscord#0000
-  </p>
-</div>
-
+  <script>
+    let isEN = true;
+    function toggleLang() {
+      isEN = !isEN;
+      document.getElementById("intro-en").style.display = isEN ? "block" : "none";
+      document.getElementById("intro-th").style.display = isEN ? "none" : "block";
+    }
+  </script>
 </body>
 </html>
-
