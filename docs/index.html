@@ -30,8 +30,8 @@
     .logo .icon{font-size:30px}
     .title-sub{color:var(--muted);font-size:14px;margin-top:6px}
     /* language toggle (top-right as requested) */
-    .lang-toggle{position:fixed;right:18px;top:18px;background:var(--glass);border:1px solid rgba(255,255,255,0.04);padding:6px;border-radius:8px;backdrop-filter: blur(6px);z-index:999;}
-    .lang-toggle button{background:none;border:0;color:var(--text);padding:6px 8px;border-radius:6px;cursor:pointer}
+    .lang-toggle{position:fixed;right:18px;top:18px;background:var(--glass);border:1px solid rgba(255,255,255,0.04);padding:4px;border-radius:8px;backdrop-filter: blur(6px);z-index:999;cursor:pointer;display:flex;gap:2px;}
+    .lang-toggle button{background:none;border:0;color:var(--text);padding:8px 12px;border-radius:6px;cursor:pointer;font-size:14px;}
     .lang-toggle button.active{background:linear-gradient(90deg,rgba(77,163,255,0.12),rgba(77,163,255,0.06));color:var(--accent);box-shadow:0 3px 10px rgba(77,163,255,0.06)}
     main h2{font-size:22px;margin:10px 0 10px 0}
     p.lead{color:var(--text);margin:8px 0 14px 0}
@@ -45,7 +45,8 @@
     audio{width:100%;outline:none;border-radius:8px;background:transparent}
     .notes{font-size:14px;color:var(--muted);margin-top:18px}
     .contact{margin-top:18px;padding-top:10px;border-top:1px dashed rgba(255,255,255,0.04)}
-    .contact a{display:block;color:var(--accent);margin:6px 0}
+    .contact a{display:inline;color:var(--accent);}
+    .contact div {margin: 6px 0;}
     footer{margin-top:26px;color:var(--muted);font-size:13px}
     @media (max-width:720px){
       .wrap{margin:20px;padding:20px;}
@@ -56,9 +57,9 @@
 <body>
 
   <!-- language toggle (top-right) -->
-  <div class="lang-toggle" role="toolbar" aria-label="Language switch">
-    <button id="btn-en" class="active" onclick="setLang('en')">English</button>
-    <button id="btn-th" onclick="setLang('th')">ไทย</button>
+  <div class="lang-toggle" role="toolbar" aria-label="Language switch" onclick="toggleLang()">
+    <button id="btn-en" class="active" onclick="event.stopPropagation(); setLang('en')">English</button>
+    <button id="btn-th" onclick="event.stopPropagation(); setLang('th')">ไทย</button>
   </div>
 
   <div class="wrap" role="main">
@@ -185,6 +186,11 @@
 
       <!-- Notes (translate) -->
       <div class="notes" id="notes">
+        <p id="notes-moved" data-en="Notes: Demo models are for reference only. Contact for production-ready builds."
+           data-th="หมายเหตุ: โมเดลตัวอย่างมีไว้เพื่ออ้างอิงเท่านั้น ติดต่อเพื่อขอใช้งานจริง">
+          Notes: Demo models are for reference only. Contact for production-ready builds.
+        </p>
+
         <p id="notes-line1" data-en="• Demo models are for quality reference. Production-ready models (50–100+ epochs) available on request."
            data-th="• โมเดลตัวอย่างนี้ไว้เพื่ออ้างอิงคุณภาพ หากต้องการโมเดลสำหรับการใช้งานจริง (เทรน 50–100+ epochs) สามารถขอได้">
           • Demo models are for quality reference. Production-ready models (50–100+ epochs) available on request.
@@ -195,20 +201,20 @@
         </p>
       </div>
 
-      <!-- Contact: DO NOT TRANSLATE (left as-is) -->
+      <!-- Contact -->
       <div class="contact" aria-label="Contact information">
         <h4 style="margin:8px 0 6px 0;color:var(--text)">Contact</h4>
         <div>
           <div><strong>Email :</strong> <a href="mailto:vioneyy.vio6@gmail.com">vioneyy.vio6@gmail.com</a></div>
           <div style="margin-top:6px;"><strong>Discord :</strong> vioneyy — <a href="https://discord.com/users/508192047614918656" target="_blank" rel="noopener">Open profile</a></div>
           <div style="margin-top:6px;"><strong>X :</strong> @__Vioneyy — <a href="https://x.com/__Vioneyy" target="_blank" rel="noopener">https://x.com/__Vioneyy</a></div>
+          <div style="margin-top:6px;"><strong>FB Pages :</strong> <a href="https://www.facebook.com/profile.php?id=61587325234077" target="_blank" rel="noopener">Vioneyy</a></div>
         </div>
       </div>
 
     </section>
 
     <footer>
-      <div>Notes: Demo models are for reference only. Contact for production-ready builds.</div>
     </footer>
   </div>
 
@@ -226,17 +232,26 @@
         const th = el.getAttribute('data-th') || en;
         el.textContent = (lang === 'th') ? th : en;
       });
+      
+      localStorage.setItem('rvc_demo_lang', lang);
+    }
+
+    function toggleLang() {
+        const current = langBtns.en.classList.contains('active') ? 'en' : 'th';
+        setLang(current === 'en' ? 'th' : 'en');
     }
 
     // default language: English
-    setLang('en');
-
     // (optional) remember selection in localStorage
     (function(){
       const saved = localStorage.getItem('rvc_demo_lang');
-      if(saved) setLang(saved);
-      document.getElementById('btn-en').addEventListener('click', ()=>{ setLang('en'); localStorage.setItem('rvc_demo_lang','en') });
-      document.getElementById('btn-th').addEventListener('click', ()=>{ setLang('th'); localStorage.setItem('rvc_demo_lang','th') });
+      if(saved) {
+        setLang(saved);
+      } else {
+        setLang('en');
+      }
+      // Click listeners are now inline or on parent, but let's keep specific ID listeners just in case
+      // actually inline onclick handles it, so no need to add event listeners here repeatedly
     })();
   </script>
 
