@@ -1,1 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RVC Voice AI Demo Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: #0f1115;
+      color: #e6e6e6;
+      max-width: 900px;
+      margin: auto;
+      padding: 32px;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #ffffff;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+    h2 {
+      margin-top: 48px;
+      border-bottom: 1px solid #2a2d34;
+      padding-bottom: 8px;
+    }
+    h3 {
+      margin-top: 32px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    .model {
+      margin-top: 32px;
+      padding: 20px;
+      background: #161922;
+      border-radius: 12px;
+    }
+    .audio-block {
+      margin-top: 12px;
+    }
+    audio {
+      width: 100%;
+      margin-top: 6px;
+    }
+    .note {
+      margin-top: 32px;
+      padding: 16px;
+      background: #141823;
+      border-left: 4px solid #5c7cfa;
+      border-radius: 8px;
+    }
+    .contact {
+      margin-top: 32px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🎧 RVC Voice AI Demo Portfolio</h1>
+
+<p>
+  This page shows demo outputs of <strong>RVC (Retrieval-based Voice Conversion)</strong>.
+</p>
+
+<p>
+  Each example includes the original <strong>TTS input</strong> and the converted
+  <strong>RVC output</strong> so you can compare quality and style.
+</p>
+
+<h2>Use Cases</h2>
+
+<ol>
+  <li>
+    <strong>AI Voice-over & Content</strong> (Podcast, Shorts, Narration)<br>
+    Use RVC together with TTS to produce voice-overs in the exact voice/style you need —
+    ideal for podcasts, short clips, ads, or narration.
+  </li>
+  <li>
+    <strong>Voice for AI Systems</strong> (Chatbots, Alerts)<br>
+    Deploy RVC models as the speaking voice for AI assistants, chatbots, or notification systems
+    (e.g., an AI that reads emails or interacts with users via voice).
+  </li>
+  <li>
+    <strong>Integration with Voice Tools & Platforms</strong><br>
+    Provide RVC models to work with third-party voice tools and apps that accept custom voice models
+    (such as TTS pipelines or live voice conversion tools).
+  </li>
+</ol>
+
+<h2>Demo Models</h2>
+<p>
+  Below are sample pairs (<strong>TTS input → RVC output</strong>).  
+  Click play to compare each model.
+</p>
+
+<div class="model">
+  <h3>🎤 Model 1 — Female voice test v1</h3>
+  <ul>
+    <li>Model: RVC (demo, ~20 epochs)</li>
+    <li>Input: Neutral TTS (example sentence)</li>
+    <li>Use case: Podcast narration / Character voice</li>
+  </ul>
+
+  <div class="audio-block">
+    <strong>TTS Input</strong>
+    <audio controls src="audio/model1_tts.mp3"></audio>
+  </div>
+
+  <div class="audio-block">
+    <strong>RVC Output</strong>
+    <audio controls src="audio/model1_rvc.wav"></audio>
+  </div>
+</div>
+
+<div class="model">
+  <h3>🎤 Model 2 — Female voice test v2</h3>
+  <ul>
+    <li>Model: RVC (demo, ~20 epochs)</li>
+    <li>Input: Neutral TTS (example sentence)</li>
+    <li>Use case: Podcast narration / Character voice</li>
+  </ul>
+
+  <div class="audio-block">
+    <strong>TTS Input</strong>
+    <audio controls src="audio/model2_tts.mp3"></audio>
+  </div>
+
+  <div class="audio-block">
+    <strong>RVC Output</strong>
+    <audio controls src="audio/model2_rvc.wav"></audio>
+  </div>
+</div>
+
+<div class="model">
+  <h3>🎤 Model 3 — Female voice test v3</h3>
+  <ul>
+    <li>Model: RVC (demo, ~20 epochs)</li>
+    <li>Input: Neutral TTS (example sentence)</li>
+    <li>Use case: Podcast narration / Character voice</li>
+  </ul>
+
+  <div class="audio-block">
+    <strong>TTS Input</strong>
+    <audio controls src="audio/model3_tts.mp3"></audio>
+  </div>
+
+  <div class="audio-block">
+    <strong>RVC Output</strong>
+    <audio controls src="audio/model3_rvc.wav"></audio>
+  </div>
+</div>
+
+<div class="note">
+  <strong>Notes</strong>
+  <ul>
+    <li>Demo models are for quality reference only.</li>
+    <li>Production-ready models (50–100+ epochs) are available on request.</li>
+    <li>I only work with voices that clients own or for which they have explicit permission.</li>
+  </ul>
+</div>
+
+<div class="contact">
+  <h2>Contact</h2>
+  <p>
+    <strong>Email:</strong> your-email@example.com<br>
+    <strong>Discord:</strong> yourdiscord#0000
+  </p>
+</div>
+
+</body>
+</html>
 
